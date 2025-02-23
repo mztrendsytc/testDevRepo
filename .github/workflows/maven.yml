@@ -1,20 +1,19 @@
-name: Trigger Test Workflow
+name: Dev Test Workflow
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   trigger-test-repo:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Send repository dispatch event
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/mztrendsytc/testDevRepo/dispatches \
-          -d '{"event_type": "run-tests"}'
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/MuhammadZeeshan07/apiAutomation/dispatches \
+               -d '{"event_type": "run-tests"}'

@@ -14,7 +14,7 @@ jobs:
       - name: Trigger automated tests in apiAutomation repo
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.API_ACCESS_TOKEN }}  # Use the correct secret name
-          repository: MuhammadZeeshan07/apiAutomation  # Test cases repo
-          event-type: run-tests  # Must match event in test repo
+          token: ${{ secrets.API_ACCESS_TOKEN }}  # ✅ Securely using the secret
+          repository: MuhammadZeeshan07/apiAutomation
+          event-type: run-tests
           client-payload: '{"triggered_by": "Dev Repo"}'

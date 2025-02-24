@@ -14,7 +14,7 @@ jobs:
       - name: Send repository dispatch event
         shell: pwsh  # Explicitly use PowerShell
         run: |
-          Invoke-WebRequest -Uri "https://github.com/MuhammadZeeshan07/apiAutom" -UseBasicParsing`
+          Invoke-WebRequest -Uri "https://github.com/MuhammadZeeshan07/apiAutom" `
             -Method Post `
             -Headers @{
                 Authorization = "token ${{ secrets.ACCESS_TOKEN }}"

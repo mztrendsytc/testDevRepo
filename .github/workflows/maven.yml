@@ -14,7 +14,7 @@ jobs:
       - name: Send repository dispatch event
         shell: pwsh  # Explicitly use PowerShell
         run: |
-          Invoke-RestMethod -Uri "https://api.github.com/repos/MuhammadZeeshan07/apiAutomation/dispatches" `
+          Invoke-RestMethod -Uri "https://github.com/MuhammadZeeshan07/apiAutomation/dispatches" `
             -Method Post `
             -Headers @{
                 Authorization = "token ${{ secrets.ACCESS_TOKEN }}"

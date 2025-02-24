@@ -5,16 +5,16 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   trigger-test:
-    runs-on: windows-latest  # Using Linux instead of Windows for API calls
+    runs-on: windows-latest
     steps:
       - name: Trigger automated tests in apiAutomation repo
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}  # PAT (Personal Access Token) required
-          repository: MuhammadZeeshan07/apiAutomation
-          event-type: run-tests  # Must match the event in apiAutomation repo
+          token: ${{ secrets.API_ACCESS_TOKEN }}  # Use the correct secret name
+          repository: MuhammadZeeshan07/apiAutomation  # Test cases repo
+          event-type: run-tests  # Must match event in test repo
           client-payload: '{"triggered_by": "Dev Repo"}'

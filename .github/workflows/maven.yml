@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Trigger automated tests in apiAutomation repo
-        uses: muhammadzeeshan/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.API_ACCESS_TOKEN }}  # ✅ Securely using the secret
           repository: MuhammadZeeshan07/apiAutomation

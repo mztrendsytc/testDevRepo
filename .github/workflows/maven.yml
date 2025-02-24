@@ -12,8 +12,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Send repository dispatch event
+        shell: pwsh  # Explicitly use PowerShell
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/MuhammadZeeshan07/apiAutomation/dispatches \
-               -d '{"event_type": "run-tests"}'
+          Invoke-RestMethod -Uri "https://api.github.com/repos/MuhammadZeeshan07/apiAutomation/dispatches" `
+            -Method Post `
+            -Headers @{
+                Authorization = "token ${{ secrets.ACCESS_TOKEN }}"
+                Accept = "application/vnd.github.v3+json"
+            } `
+            -Body '{"event_type": "run-tests"}' `
+            -ContentType "application/json"

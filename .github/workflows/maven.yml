@@ -9,12 +9,12 @@ on:
 
 jobs:
   trigger-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Using Linux instead of Windows for API calls
     steps:
-      - name: Trigger the automated test in another repo
+      - name: Trigger automated tests in apiAutomation repo
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}  # PAT (Personal Access Token) required
           repository: MuhammadZeeshan07/apiAutomation
-          event-type: my-event
-          client-payload: '{"github": ${{ toJson(github) }}}'
+          event-type: run-tests  # Must match the event in apiAutomation repo
+          client-payload: '{"triggered_by": "Dev Repo"}'

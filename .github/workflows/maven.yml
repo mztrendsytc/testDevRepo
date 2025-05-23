@@ -9,7 +9,7 @@ on:
 
 jobs:
   run-tests:
-    uses: MuhammadZeeshan07/apiAutomation/.github/workflows/reusable-test.yml@master
+    uses: MuhammadZeeshan07/apiAutomation/.github/workflows/maven.yml@master
     with: {}
     secrets:
       API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}

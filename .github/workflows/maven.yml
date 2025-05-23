@@ -24,4 +24,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Production
-        run: echo "Deploying because tests passed!"
+        run: echo "✅ Deploying because tests passed!"

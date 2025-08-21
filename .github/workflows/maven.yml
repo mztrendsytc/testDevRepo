@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout Playwright Repo
+    - name: Checkout Playwright Test Repo
       uses: actions/checkout@v4
       with:
         repository: MuhammadZeeshan07/YoucaterTestSuite
@@ -43,11 +43,11 @@ jobs:
         name: playwright-report
         path: YoucaterTestSuite/playwright-report/
 
-    - name: Upload Playwright test results
+    - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: playwright-test-results
+        name: test-results
         path: YoucaterTestSuite/test-results/
 
   deploy:
